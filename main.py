@@ -17,10 +17,11 @@ def get_char_count_dict(text):
     lower_cased = text.lower()
     letter_count = {}
     for character in lower_cased:
-        if character in letter_count:
-            letter_count[character] += 1
-        else:
-            letter_count[character] = 1
+        if character.isalpha():
+            if character in letter_count:
+                letter_count[character] += 1
+            else:
+                letter_count[character] = 1
     return letter_count
 
 if __name__ == '__main__':

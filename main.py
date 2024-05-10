@@ -3,8 +3,7 @@ def main():
     text = get_book_text(book_path)
     wc = get_number_of_words(text)
     char_dict = get_char_count_dict(text)
-    list_of_dict = get_list_of_dict(char_dict)
-    sorted_list_by_count = get_sorted_list(list_of_dict)
+    sorted_list_by_count = get_sorted_list_of_dict(char_dict)
     get_report(book_path, wc, sorted_list_by_count)
 
 def get_book_text(book_path):
@@ -16,26 +15,24 @@ def get_number_of_words(text):
 
 def get_char_count_dict(text):
     lower_cased = text.lower()
-    letter_count = {}
+    char_count = {}
     for character in lower_cased:
         if character.isalpha():
-            if character in letter_count:
-                letter_count[character] += 1
+            if character in char_count:
+                char_count[character] += 1
             else:
-                letter_count[character] = 1
-    return letter_count
+                char_count[character] = 1
+    return char_count
 
-def get_list_of_dict(dict):
-    list_of_dict = []
-    for key in dict:
-        list_of_dict.append({"character": key, "count": dict[key]})
-    return list_of_dict
-
-def get_sorted_list(list):
-    def sort_on(dict):
+def sort_on(dict):
         return dict["count"]
-    list.sort(reverse=True, key=sort_on)
-    return list
+
+def get_sorted_list_of_dict(dict):
+    sorted_list_of_dict = []
+    for key in dict:
+        sorted_list_of_dict.append({"character": key, "count": dict[key]})
+    sorted_list_of_dict.sort(reverse=True, key=sort_on)
+    return sorted_list_of_dict
 
 def get_report(document_name, word_count, sorted_list):
     print(f"--- Begin report of {document_name} ---\n")

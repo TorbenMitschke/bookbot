@@ -19,9 +19,9 @@ This Python project is designed to analyze the textual content of a book. Specif
 
 ## Usage
 
-The script is executed by running the `main()` function, which orchestrates the text analysis and reporting process. Ensure the text file (`frankenstein.txt`) is placed under `books/` directory relative to the script for it to function properly.
+The script is executed by running the `main()` function, which orchestrates the text analysis and reporting process. Ensure the text file (`frankenstein.txt`) is placed under `books/` directory relative to the script for it to function properly (Any other path/name of the text file needs to be adjusted in the script).
 
 This project is ideal for those interested in text analysis, learning Python basics, or exploring data handling and reporting techniques.
 
 ## Credits
-This project was inspired by and developed under the guidance of the boot.dev course. Special thanks to Lane, the team and community of [boot.dev](boot.dev) for their invaluable insights and expertise which greatly enhanced the quality of this work.
+This project was inspired by and developed under the guidance of the boot.dev course "Build a bookbot". Special thanks to Lane, the team and community of [boot.dev](boot.dev) for their invaluable insights and expertise which greatly enhanced the quality of this work.

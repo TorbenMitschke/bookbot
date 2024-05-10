@@ -6,7 +6,8 @@ def main():
     char_dict = get_char_count_dict(text)
     print(char_dict)
     list_of_dict = get_list_of_dict(char_dict)
-    print(list_of_dict)
+    sorted_list_by_count = get_sorted_list(list_of_dict)
+    print(sorted_list_by_count)
 
 def get_book_text(book_path):
     with open(book_path) as f:
@@ -29,8 +30,14 @@ def get_char_count_dict(text):
 def get_list_of_dict(dict):
     list_of_dict = []
     for key in dict:
-        list_of_dict.append({key: dict[key]})
+        list_of_dict.append({"character": key, "count": dict[key]})
     return list_of_dict
+
+def get_sorted_list(list):
+    def sort_on(dict):
+        return dict["count"]
+    list.sort(reverse=True, key=sort_on)
+    return list
 
 if __name__ == '__main__':
     main()

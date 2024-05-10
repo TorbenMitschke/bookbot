@@ -1,13 +1,11 @@
 def main():
-    book_path = "./books/frankenstein.txt"
+    book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     wc = get_number_of_words(text)
-    print(f"{wc} words found in the document.")
     char_dict = get_char_count_dict(text)
-    print(char_dict)
     list_of_dict = get_list_of_dict(char_dict)
     sorted_list_by_count = get_sorted_list(list_of_dict)
-    print(sorted_list_by_count)
+    get_report(book_path, wc, sorted_list_by_count)
 
 def get_book_text(book_path):
     with open(book_path) as f:
@@ -38,6 +36,14 @@ def get_sorted_list(list):
         return dict["count"]
     list.sort(reverse=True, key=sort_on)
     return list
+
+def get_report(document_name, word_count, sorted_list):
+    print(f"--- Begin report of {document_name} ---\n")
+    print(f"{word_count} words found in the document.\n")
+    for character_count in sorted_list:
+        print(f"The character '{character_count["character"]}' was found {character_count["count"]} times")
+    print(f"\n------------ End of report ------------")
+
 
 if __name__ == '__main__':
     main()
